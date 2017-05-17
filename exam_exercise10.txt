@@ -1,0 +1,14 @@
+select gene_name, sum(seq_region_end-seq_region_start+1) as length from gene group by gene_name order by length desc limit 1;
+-----------+---------+
+| gene_name | length  |
++-----------+---------+
+| TMPRSS3   | 5379014 |
+
+
+select gene_name, count(*) from gene JOIN transcript ON gene.gene_id = transcript.gene_id group by gene_name order by count(*) desc limit 1 offset 1
+ gene_name | count(*) |
++-----------+----------+
+| Y_RNA     |      813 |
++-----------+----------+
+
+transcripten 813
