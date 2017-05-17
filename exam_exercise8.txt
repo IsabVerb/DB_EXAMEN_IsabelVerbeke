@@ -1,0 +1,19 @@
+
+UNF: db(staffno, dentistName, patno, name, app_date, app_time, surgno)
+Verwijderen van de herhalende groepen
+1NF: staff (staffno, dentistName)
+     pat (patno, name, app_date, app_time, surgno, staffno)
+
+PK: staff: staffno
+    pat: patno, staff_no, app_date
+
+Alle niet-sleutel attributen zijn afhankelijk van de volledige sleutel
+2NF: staff (staffno, dentistName)
+     pat (patno, name, app_date, app_time, staffno)
+     surg (patno, surgno)
+
+Alle niet-sleutel attributen hangen niet af van een ander niet-sleutel attribuut
+3NF: staff (staffno, dentistName)
+     pat (patno, name, app_date, staffno)
+     date (app_date, app_time)
+     surg (patno, surgno)
